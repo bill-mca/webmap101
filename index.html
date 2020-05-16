@@ -12,15 +12,15 @@
         <style>
             #header {
                 height: 75px;
-                background-color: darkgoldenrod;
+                background-color: darkseagreen;
             }
             #mapdiv {
-                height: 650px;
-                background-color:salmon;
+                height: 750px;
+                background-color:aliceblue;
             }
             #side_panel {
-                height: 650px;
-                background-color:beige;
+                height: 750px;
+                background-color:ivory;
             }
             #footer {
                 height:75px;
@@ -42,7 +42,7 @@
             /* Modal Content */
             .modal-content {
                 padding: 20px;
-                background-color:tan;
+                background-color:ivory;
                 margin-top: 10%;
             }
 
@@ -60,7 +60,7 @@
                 <option value='Museum'>Museum</option>
                 <option value='Place'>Place</option>
                 <option value='Neighborhood'>Neighborhood</option>
-                <option value='Davo's place'>Davo's place</option>
+                <option value='Davos place'>Davo's place</option>
             </select>
             <div id="zoomButtons"></div>
          </div>
@@ -130,7 +130,14 @@
             mymap.setView([-35.28584, -210.86725], 14);
             
             var backgroundLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-            mymap.addLayer(backgroundLayer);
+            //mymap.addLayer(backgroundLayer);
+
+            var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+               	subdomains: 'abcd',
+            	maxZoom: 19
+                });
+                mymap.addLayer(CartoDB_Positron);
 
             var lyrAttractions;
             refreshAttractions();
